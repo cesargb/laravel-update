@@ -1,4 +1,5 @@
 <?php
+
 namespace Cesargb\Update\Notifications;
 
 use Illuminate\Notifications\Notification;
@@ -13,6 +14,7 @@ abstract class BaseNotification extends Notification
     public function via()
     {
         $notificationChannels = config('update.notifications.via.'.static::class);
+
         return array_filter($notificationChannels);
     }
 

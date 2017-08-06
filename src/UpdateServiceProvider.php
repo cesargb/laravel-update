@@ -2,8 +2,8 @@
 
 namespace Cesargb\Update;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\ServiceProvider;
 
 class UpdateServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,7 @@ class UpdateServiceProvider extends ServiceProvider
             ]);
         }
         $this->app->booted(function () {
-            if (config('update.scheduler.enable',false)) {
+            if (config('update.scheduler.enable', false)) {
                 $schedule = $this->app->make(Schedule::class);
                 $schedule->command('update:check', ['--notify'])->cron(config('update.scheduler.cron', '0 9 * * * *'));
             }
@@ -35,6 +35,5 @@ class UpdateServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
     }
 }

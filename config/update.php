@@ -16,14 +16,14 @@ return [
     'scheduler' => [
         'enable'    => true,
         'cron'      => '0 0 * * * *',
-        'command'   => Cesargb\Update\Commands\CheckUpate::class
+        'command'   => Cesargb\Update\Commands\CheckUpate::class,
     ],
 
     'notifications' => [
         'via' => [
             \Cesargb\Update\Notifications\HasUpdates::class => ['mail'],
             \Cesargb\Update\Notifications\Updated::class    => ['mail'],
-            \Cesargb\Update\Notifications\HasError::class   => ['mail']
+            \Cesargb\Update\Notifications\HasError::class   => ['mail'],
         ],
 
         'notifiable' => \Cesargb\Update\Notifications\Notifiable::class,
@@ -39,6 +39,6 @@ return [
              */
             'channel' => null,
         ],
-    ]
+    ],
 
 ];
