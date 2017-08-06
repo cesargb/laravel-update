@@ -1,10 +1,9 @@
 <?php
+
 namespace Cesargb\Update\Notifications;
 
-use Cesargb\Update\Notifications\BaseNotification;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
-use Illuminate\Notifications\Messages\SlackAttachment;
 
 class HasError extends BaseNotification
 {
@@ -17,19 +16,20 @@ class HasError extends BaseNotification
      */
     public function __construct($message)
     {
-        $this->message=$message;
+        $this->message = $message;
     }
 
     public function toMail(): MailMessage
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->error()
             ->subject($this->applicationName().' error to update')
             ->line($this->applicationName().' get error when update: '.$this->message);
     }
+
     public function toSlack(): SlackMessage
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->error()
             ->to(config('update.notifications.slack.channel'))
             ->content($this->applicationName().' get error when update: '.$this->message);

@@ -1,4 +1,5 @@
 <?php
+
 namespace Cesargb\Update\Notifications;
 
 use Illuminate\Notifications\Notifiable as NotifiableTrait;
@@ -26,5 +27,4 @@ class Notifiable
     {
         return config('update.notifications.slack.webhook_url');
     }
-
 }

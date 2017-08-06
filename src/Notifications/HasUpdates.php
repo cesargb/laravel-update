@@ -1,11 +1,10 @@
 <?php
+
 namespace Cesargb\Update\Notifications;
 
-use Cesargb\Update\Notifications\BaseNotification;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Messages\SlackMessage;
 use Illuminate\Notifications\Messages\SlackAttachment;
-
+use Illuminate\Notifications\Messages\SlackMessage;
 
 class HasUpdates extends BaseNotification
 {
@@ -18,12 +17,12 @@ class HasUpdates extends BaseNotification
      */
     public function __construct($updates)
     {
-        $this->updates=$updates;
+        $this->updates = $updates;
     }
 
     public function toMail(): MailMessage
     {
-        $mailMessage = (new MailMessage)
+        $mailMessage = (new MailMessage())
             ->error()
             ->subject($this->applicationName().' have '.count($this->updates).' updates pending')
             ->line($this->applicationName().' have '.count($this->updates).' updates pending:');
@@ -37,16 +36,16 @@ class HasUpdates extends BaseNotification
 
     public function toSlack(): SlackMessage
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->error()
             ->to(config('update.notifications.slack.channel'))
             ->content($this->applicationName().' have '.count($this->updates).' updates pending')
             ->attachment(function (SlackAttachment $attachment) {
                 foreach ($this->updates as $update) {
                     $attachment->fields([
-                        'package'   => $update['package'],
+                        'package'       => $update['package'],
                         'version'       => $update['current_version'],
-                        'new version'   => $update['new_version']
+                        'new version'   => $update['new_version'],
                     ]);
                 }
             });
