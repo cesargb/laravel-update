@@ -47,7 +47,7 @@ class Update extends Command
                     $this->info(' - '.$update['package'].': '.$update['version']);
                 }
                 if ($this->option('notify')) {
-                    app(config('update.notifications.notifiable'))->notify(new Updated($updates));
+                    app(config('update.notifications.notifiable'))->notify(new Updated($packages_updated));
                 }
             }
         }
