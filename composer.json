@@ -1,0 +1,45 @@
+{
+    "name": "cesargb/laravel-update",
+    "description": "",
+    "keywords": [
+        "laravel",
+        "composer",
+        "packages",
+        "update",
+        "laravel-update"
+    ],
+    "homepage": "https://github.com/cesargb/laravel-update",
+    "authors": [
+	{
+		"name": "Cesar Garcia",
+		"email": "cesargb@gmail.com",
+		"homepage": "https://github.com/cesargb",
+        "role": "Developer"
+	}
+    ],
+    "license": "MIT",
+    "require": {
+        "php" : ">=7.0",
+        "illuminate/support": "~5.4.0",
+        "illuminate/console": "~5.4.0",
+        "illuminate/notifications": "~5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cesargb\\Update\\": "src"
+        }
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "Allows notifications to be sent via Slack"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cesargb\\Update\\UpdateServiceProvider"
+            ]
+        }
+    }
+}
