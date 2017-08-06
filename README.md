@@ -14,7 +14,7 @@ You can install the package via composer:
 composer require cesargb/laravel-update
 ```
 
-Now add the service provider in config/app.php file:
+Now add the service provider in `config/app.php` file:
 
 ```php
 'providers' => [
@@ -26,9 +26,9 @@ Now add the service provider in config/app.php file:
 You can publish config file with:
 
 ```
-php artisan vendor:publish --provider="Cesargb\UplateUpdateServiceProvider" --tag=config
+php artisan vendor:publish --provider="Cesargb\Update\UpdateServiceProvider" --tag=config
 ```
-This is the contents of the published config/update.php config file:
+This is the contents of the published `config/update.php` config file:
 
 ```php
 return [
