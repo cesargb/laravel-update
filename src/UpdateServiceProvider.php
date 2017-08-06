@@ -14,12 +14,17 @@ class UpdateServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishes([
+            __DIR__.'/../config/update.php' => config_path('update.php'),
+        ], 'config');
+        
         if ($this->app->runningInConsole()) {
             $this->commands([
                 Commands\CheckUpdate::class,
                 Commands\Update::class,
             ]);
         }
+        
         $this->app->booted(function () {
             if (config('update.scheduler.enable', false)) {
                 $schedule = $this->app->make(Schedule::class);
