@@ -27,7 +27,7 @@ class Updated extends BaseNotification
             ->line($this->applicationName().' had updated this '.count($this->packages_updated).' packages:');
 
         foreach ($this->packages_updated as $update) {
-            $mailMessage->line($update['package'].': '.$update['version'];
+            $mailMessage->line($update['package'].': '.$update['version']);
         }
 
         return $mailMessage;
