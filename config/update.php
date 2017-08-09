@@ -16,7 +16,7 @@ return [
     'scheduler' => [
         'enable'    => true,
         'cron'      => '0 0 * * * *',
-        'command'   => Cesargb\Update\Commands\CheckUpate::class,
+        'command'   => Cesargb\Update\Commands\CheckUpdate::class,
     ],
 
     'notifications' => [
