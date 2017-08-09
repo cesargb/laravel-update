@@ -5,7 +5,7 @@ return [
     /*
      * You can especified the program composer with full path.
      */
-    'composer_bin' => 'composer',
+    'composer_bin' => base_path('vendor').'/bin/composer',
 
     /*
      * By default disables installation of require-dev package.
