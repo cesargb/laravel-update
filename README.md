@@ -75,6 +75,77 @@ return [
 ];
 ```
 
+## Using artisan commands
+
+You can check if has any update with this command:
+
+```bash
+php artisan update:check
+```
+
+If you want upgrade the packages, run:
+
+```bash
+php artisan update:packages
+```
+
+Optionally you can receive a notification by email and/or Slack, with option `--notfy`
+
+```bash
+php artisan update:check --notify
+php artisan update:packages --notfy
+```
+
+## Scheduler
+
+You need to add the following Cron entry to your server.
+
+```bash
+* * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
+```
+
+If you want receive a notification when your system had any upgrade pending, you
+can enable it in config file `config/update.php`
+
+```php
+    'scheduler' => [
+        'enable'    => true,
+        'cron'      => '0 0 * * * *',
+        'command'   => Cesargb\Update\Commands\CheckUpate::class
+    ],
+```
+
+If prefer upgrade the system, change de command for `Cesargb\Update\Commands\Update::class`
+
+```php
+    'scheduler' => [
+        'enable'    => true,
+        'cron'      => '0 0 * * * *',
+        'command'   => Cesargb\Update\Commands\Update::class
+    ],
+```
+
+## Notifications
+
+If you use command with argument `--notifiy` or with scheduler, you can receive notifications when be necessary.
+
+You have three type notifications:
+
+* when you have Error
+* When have updates pending
+* When update was make
+
+each one of this notifications, you can especified the channel of notify in this
+part of the config file `update.php`
+
+```php
+'via' => [
+    \Cesargb\Update\Notifications\HasUpdates::class => ['mail'],
+    \Cesargb\Update\Notifications\Updated::class    => ['slack'],
+    \Cesargb\Update\Notifications\HasError::class   => ['mail, 'slack']
+],
+```
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
