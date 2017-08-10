@@ -24,7 +24,7 @@ class CheckUpdate extends Command
 
         if ($ret !== 0) {
             if ($this->option('notify')) {
-                app(config('update.notifications.notifiable'))->notify(new HasError($out[0]));
+                app(config('update.notifications.notifiable', \Cesargb\Update\Notifications\Notifiable::class))->notify(new HasError($out[0]));
             }
             throw ExceptionExecCommand::create(explode("\n", $this->signature)[0], $ret, $out[0]);
         } else {
@@ -49,7 +49,7 @@ class CheckUpdate extends Command
                     $this->line(' - '.$update['package'].' ('.$update['current_version'].'): '.$update['new_version'], 'comment');
                 }
                 if ($this->option('notify')) {
-                    app(config('update.notifications.notifiable'))->notify(new HasUpdates($updates));
+                    app(config('update.notifications.notifiable', \Cesargb\Update\Notifications\Notifiable::class))->notify(new HasUpdates($updates));
                 }
             }
         }

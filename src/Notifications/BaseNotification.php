@@ -13,7 +13,7 @@ abstract class BaseNotification extends Notification
      */
     public function via()
     {
-        $notificationChannels = config('update.notifications.via.'.static::class);
+        $notificationChannels = config('update.notifications.via.'.static::class, []);
 
         return array_filter($notificationChannels);
     }
