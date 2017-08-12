@@ -142,7 +142,7 @@ part of the config file `update.php`
 'via' => [
     \Cesargb\Update\Notifications\HasUpdates::class => ['mail'],
     \Cesargb\Update\Notifications\Updated::class    => ['slack'],
-    \Cesargb\Update\Notifications\HasError::class   => ['mail, 'slack']
+    \Cesargb\Update\Notifications\HasError::class   => ['mail', 'slack']
 ],
 ```
 
