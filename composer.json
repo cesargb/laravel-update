@@ -1,6 +1,6 @@
 {
     "name": "cesargb/laravel-update",
-    "description": "",
+    "description": "Recieve notifications when laravel has pending updates or updates them.",
     "keywords": [
         "laravel",
         "composer",
