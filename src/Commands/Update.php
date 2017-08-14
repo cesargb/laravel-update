@@ -25,6 +25,7 @@ class Update extends Command
             if ($this->option('notify')) {
                 app(config('update.notifications.notifiable', \Cesargb\Update\Notifications\Notifiable::class))->notify(new HasError($out[0]));
             }
+
             throw ExceptionExecCommand::create(explode("\n", $this->signature)[0], $ret, $out[0]);
         } else {
             $packages_updated = [];
