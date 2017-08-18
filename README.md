@@ -28,7 +28,7 @@ You can publish config file with:
 ```
 php artisan vendor:publish --provider="Cesargb\Update\UpdateServiceProvider" --tag=config
 ```
-This is the contents of the published `config/update.php` config file:
+This are the contents of the published `config/update.php` config file:
 
 ```php
 return [
