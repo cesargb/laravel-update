@@ -2,7 +2,6 @@
 
 namespace Cesargb\Update\Tests;
 
-use Illuminate\Contracts\Console\Kernel;
 use Cesargb\Update\UpdateServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 

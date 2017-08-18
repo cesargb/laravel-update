@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Artisan;
 
 class CommandTest extends TestCase
 {
-
     public function setUp()
     {
         parent::setUp();
@@ -25,7 +24,7 @@ class CommandTest extends TestCase
     /** @test */
     public function it_can_run_the_update_packages_command()
     {
-        $ctime_start = filectime(__DIR__ . '/../vendor');
+        $ctime_start = filectime(__DIR__.'/../vendor');
 
         sleep(1);
 
@@ -33,7 +32,7 @@ class CommandTest extends TestCase
 
         $this->assertEquals(0, $resultCode);
 
-        $ctime_end = filectime(__DIR__ . '/../vendor');
+        $ctime_end = filectime(__DIR__.'/../vendor');
 
         $this->assertNotEquals($ctime_start, $ctime_end);
     }
