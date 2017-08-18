@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Artisan;
 
 class ScheduleTest extends TestCase
 {
-
     public function setUp()
     {
         parent::setUp();
@@ -23,7 +22,7 @@ class ScheduleTest extends TestCase
         $this->app['config']->set('update.scheduler.check.enable', true);
         $this->app['config']->set('update.scheduler.update.enable', false);
 
-        $ctime_start = filectime(__DIR__ . '/../vendor');
+        $ctime_start = filectime(__DIR__.'/../vendor');
 
         sleep(1);
 
@@ -31,7 +30,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals(0, $resultCode);
 
-        $ctime_end = filectime(__DIR__ . '/../vendor');
+        $ctime_end = filectime(__DIR__.'/../vendor');
 
         $this->assertNotEquals($ctime_start, $ctime_end);
     }
@@ -42,7 +41,7 @@ class ScheduleTest extends TestCase
         $this->app['config']->set('update.scheduler.check.enable', false);
         $this->app['config']->set('update.scheduler.update.enable', true);
 
-        $ctime_start = filectime(__DIR__ . '/../vendor');
+        $ctime_start = filectime(__DIR__.'/../vendor');
 
         sleep(1);
 
@@ -50,7 +49,7 @@ class ScheduleTest extends TestCase
 
         $this->assertEquals(0, $resultCode);
 
-        $ctime_end = filectime(__DIR__ . '/../vendor');
+        $ctime_end = filectime(__DIR__.'/../vendor');
 
         $this->assertNotEquals($ctime_start, $ctime_end);
     }

@@ -17,12 +17,12 @@ return [
 
         'check' => [
             'enable'    => true,
-            'cron'      => '0 0 * * * *'
+            'cron'      => '0 0 * * * *',
         ],
 
         'update' => [
             'enable'    => false,
-            'cron'      => '0 0 * * * *'
+            'cron'      => '0 0 * * * *',
         ],
 
     ],
