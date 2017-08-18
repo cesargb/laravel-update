@@ -140,8 +140,6 @@ If prefer upgrade the system, change de command for `Cesargb\Update\Commands\Upd
         'cron'      => '0 0 * * * *'
     ],
 
-    // ...
-
 ],
 ```
 
