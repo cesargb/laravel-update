@@ -23,11 +23,11 @@ class Updated extends BaseNotification
     public function toMail(): MailMessage
     {
         $mailMessage = (new MailMessage())
-            ->subject($this->applicationName().' had updated '.count($this->packages_updated).' packages')
-            ->line($this->applicationName().' had updated this '.count($this->packages_updated).' packages:');
+            ->subject($this->applicationName() . ' had updated ' . count($this->packages_updated) . ' packages')
+            ->line($this->applicationName() . ' had updated this ' . count($this->packages_updated) . ' packages:');
 
         foreach ($this->packages_updated as $update) {
-            $mailMessage->line($update['package'].': '.$update['version']);
+            $mailMessage->line('* ' . $update['package'] . ': ' . $update['version']);
         }
 
         return $mailMessage;
@@ -37,7 +37,7 @@ class Updated extends BaseNotification
     {
         return (new SlackMessage())
             ->to(config('update.notifications.slack.channel'))
-            ->content($this->applicationName().' had updated '.count($this->packages_updated).' packages')
+            ->content($this->applicationName().' had updated ' . count($this->packages_updated) . ' packages')
             ->attachment(function (SlackAttachment $attachment) {
                 foreach ($this->packages_updated as $update) {
                     $attachment->fields([

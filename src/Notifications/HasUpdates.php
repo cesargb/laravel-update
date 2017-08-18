@@ -24,11 +24,11 @@ class HasUpdates extends BaseNotification
     {
         $mailMessage = (new MailMessage())
             ->error()
-            ->subject($this->applicationName().' have '.count($this->updates).' updates pending')
-            ->line($this->applicationName().' have '.count($this->updates).' updates pending:');
+            ->subject($this->applicationName() . ' have ' . count($this->updates) . ' updates pending')
+            ->line($this->applicationName() . ' have ' . count($this->updates) . ' updates pending:');
 
         foreach ($this->updates as $update) {
-            $mailMessage->line($update['package'].' ('.$update['current_version'].'): '.$update['new_version']);
+            $mailMessage->line('* ' . $update['package'] . ' (' . $update['current_version'].'): ' . $update['new_version']);
         }
 
         return $mailMessage;
@@ -39,7 +39,7 @@ class HasUpdates extends BaseNotification
         return (new SlackMessage())
             ->error()
             ->to(config('update.notifications.slack.channel'))
-            ->content($this->applicationName().' have '.count($this->updates).' updates pending')
+            ->content($this->applicationName() . ' have ' . count($this->updates) . ' updates pending')
             ->attachment(function (SlackAttachment $attachment) {
                 foreach ($this->updates as $update) {
                     $attachment->fields([

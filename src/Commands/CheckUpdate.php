@@ -18,7 +18,7 @@ class CheckUpdate extends Command
     public function handle()
     {
         $composer_bin = config('update.composer_bin', 'composer');
-        $no_dev = config('update.require-dev', false) ?: ' --no-dev';
+        $no_dev = config('update.require-dev', false) ? '' : ' --no-dev';
 
         exec($composer_bin.' update --dry-run'.$no_dev.' 2>&1', $out, $ret);
 

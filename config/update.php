@@ -14,9 +14,17 @@ return [
     'require-dev' => false,
 
     'scheduler' => [
-        'enable'    => true,
-        'cron'      => '0 0 * * * *',
-        'command'   => Cesargb\Update\Commands\CheckUpdate::class,
+
+        'check' => [
+            'enable'    => true,
+            'cron'      => '0 0 * * * *'
+        ],
+
+        'update' => [
+            'enable'    => false,
+            'cron'      => '0 0 * * * *'
+        ],
+
     ],
 
     'notifications' => [
@@ -29,7 +37,7 @@ return [
         'notifiable' => \Cesargb\Update\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'email@example.con',
+            'to' => 'email@example.com',
         ],
 
         'slack' => [

@@ -23,8 +23,8 @@ class HasError extends BaseNotification
     {
         return (new MailMessage())
             ->error()
-            ->subject($this->applicationName().' error to update')
-            ->line($this->applicationName().' get error when update: '.$this->message);
+            ->subject($this->applicationName() . ' error to update')
+            ->line($this->applicationName() . ' get error when update: ' . $this->message);
     }
 
     public function toSlack(): SlackMessage
@@ -32,6 +32,6 @@ class HasError extends BaseNotification
         return (new SlackMessage())
             ->error()
             ->to(config('update.notifications.slack.channel'))
-            ->content($this->applicationName().' get error when update: '.$this->message);
+            ->content($this->applicationName() . ' get error when update: ' . $this->message);
     }
 }

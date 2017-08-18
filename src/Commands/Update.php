@@ -17,9 +17,9 @@ class Update extends Command
     public function handle()
     {
         $composer_bin = config('update.composer_bin', 'composer');
-        $no_dev = config('update.require-dev', false) ?: ' --no-dev';
+        $no_dev = config('update.require-dev', false) ? '' : ' --no-dev';
 
-        exec($composer_bin.' update '.$no_dev.' 2>&1', $out, $ret);
+        exec($composer_bin.' update'.$no_dev.' 2>&1', $out, $ret);
 
         if ($ret !== 0) {
             if ($this->option('notify')) {

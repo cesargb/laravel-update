@@ -26,9 +26,13 @@ class UpdateServiceProvider extends ServiceProvider
         }
 
         $this->app->booted(function () {
-            if (config('update.scheduler.enable', false)) {
+            if (config('update.scheduler.check.enable', true)) {
                 $schedule = $this->app->make(Schedule::class);
-                $schedule->command('update:check', ['--notify'])->cron(config('update.scheduler.cron', '0 9 * * * *'));
+                $schedule->command('update:check', ['--notify'])->cron(config('update.scheduler.check.cron', '0 0 * * * *'));
+            }
+            if (config('update.scheduler.update.enable', false)) {
+                $schedule = $this->app->make(Schedule::class);
+                $schedule->command('update:packages', ['--notify'])->cron(config('update.scheduler.update.cron', '0 0 * * * *'));
             }
         });
     }
