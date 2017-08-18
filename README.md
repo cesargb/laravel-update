@@ -116,21 +116,33 @@ If you want receive a notification when your system had any upgrade pending, you
 can enable it in config file `config/update.php`
 
 ```php
-    'scheduler' => [
+'scheduler' => [
+
+    'check' => [
         'enable'    => true,
-        'cron'      => '0 0 * * * *',
-        'command'   => Cesargb\Update\Commands\CheckUpate::class
+        'cron'      => '0 0 * * * *'
     ],
+
+    // ...
+
+],
 ```
 
 If prefer upgrade the system, change de command for `Cesargb\Update\Commands\Update::class`
 
 ```php
-    'scheduler' => [
+'scheduler' => [
+
+    // ...
+
+    'update' => [
         'enable'    => true,
-        'cron'      => '0 0 * * * *',
-        'command'   => Cesargb\Update\Commands\Update::class
+        'cron'      => '0 0 * * * *'
     ],
+
+    // ...
+
+],
 ```
 
 ## Notifications
