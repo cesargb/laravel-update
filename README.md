@@ -128,7 +128,7 @@ can enable it in config file `config/update.php`
 ],
 ```
 
-If prefer upgrade the system, change de command for `Cesargb\Update\Commands\Update::class`
+If prefer upgrade the system, set a `true` the param `scheduler.update.enable`:
 
 ```php
 'scheduler' => [
