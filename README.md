@@ -26,7 +26,7 @@ Now add the service provider in `config/app.php` file:
 You can publish config file with:
 
 ```
-php artisan vendor:publish --provider="Cesargb\Update\UpdateServiceProvider" --tag=config
+php artisan vendor:publish --provider="Cesargb\Update\UpdateServiceProvider"
 ```
 This are the contents of the published `config/update.php` config file:
 
@@ -48,12 +48,12 @@ return [
 
         'check' => [
             'enable'    => true,
-            'cron'      => '0 0 * * * *'
+            'cron'      => '0 0 * * * *',
         ],
 
         'update' => [
             'enable'    => false,
-            'cron'      => '0 0 * * * *'
+            'cron'      => '0 0 * * * *',
         ],
 
     ],
@@ -62,7 +62,7 @@ return [
         'via' => [
             \Cesargb\Update\Notifications\HasUpdates::class => ['mail'],
             \Cesargb\Update\Notifications\Updated::class    => ['mail'],
-            \Cesargb\Update\Notifications\HasError::class   => ['mail']
+            \Cesargb\Update\Notifications\HasError::class   => ['mail'],
         ],
 
         'notifiable' => \Cesargb\Update\Notifications\Notifiable::class,
@@ -120,7 +120,7 @@ can enable it in config file `config/update.php`
 
     'check' => [
         'enable'    => true,
-        'cron'      => '0 0 * * * *'
+        'cron'      => '0 0 * * * *',
     ],
 
     // ...
@@ -137,7 +137,7 @@ If prefer upgrade the system, change de command for `Cesargb\Update\Commands\Upd
 
     'update' => [
         'enable'    => true,
-        'cron'      => '0 0 * * * *'
+        'cron'      => '0 0 * * * *',
     ],
 
 ],
