@@ -1,6 +1,6 @@
 # Recieve notifications when laravel has pending updates or updates them.
 
-This package allows you schedule to receive notifications when you have pending updates in Laravel.
+This package allows receive notifications when you have pending updates in Laravel.
 
 Optionally you can schedule the update of the packages.
 
@@ -14,7 +14,7 @@ You can install the package via composer:
 composer require cesargb/laravel-update
 ```
 
-Now add the service provider in `config/app.php` file:
+If you have Laravel 5.4, you must add the service provider in `config/app.php` file:
 
 ```php
 'providers' => [
@@ -36,7 +36,7 @@ return [
     /*
      * You can especified the program composer with full path.
      */
-    'composer_bin' => 'composer',
+    'composer_bin' => base_path('vendor').'/bin/composer',
 
     /*
      * By default disables installation of require-dev package.
@@ -91,13 +91,13 @@ You can check if has any update with this command:
 php artisan update:check
 ```
 
-If you want upgrade the packages, run:
+If you want upgrade the packages run:
 
 ```bash
 php artisan update:packages
 ```
 
-Optionally you can receive a notification by email and/or Slack, with option `--notfy`
+Optionally you can receive a notification by email and/or Slack, with option `--notify`
 
 ```bash
 php artisan update:check --notify
@@ -149,9 +149,9 @@ If you use command with argument `--notifiy` or with scheduler, you can receive 
 
 You have three type notifications:
 
-* when you have Error
+* When the process have an error
 * When have updates pending
-* When update was make
+* When update was done
 
 each one of this notifications, you can especified the channel of notify in this
 part of the config file `update.php`
@@ -162,7 +162,7 @@ part of the config file `update.php`
     \Cesargb\Update\Notifications\Updated::class    => ['slack'],
     \Cesargb\Update\Notifications\HasError::class   => ['mail', 'slack']
 ],
-```
+``` 
 
 ## License
 
