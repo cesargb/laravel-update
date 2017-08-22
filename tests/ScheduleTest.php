@@ -22,17 +22,9 @@ class ScheduleTest extends TestCase
         $this->app['config']->set('update.scheduler.check.enable', true);
         $this->app['config']->set('update.scheduler.update.enable', false);
 
-        $ctime_start = filectime(__DIR__.'/../vendor');
-
-        sleep(1);
-
         $resultCode = Artisan::call('schedule:run');
 
         $this->assertEquals(0, $resultCode);
-
-        $ctime_end = filectime(__DIR__.'/../vendor');
-
-        $this->assertNotEquals($ctime_start, $ctime_end);
     }
 
     /** @test */
