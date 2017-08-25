@@ -1,5 +1,10 @@
 # Recieve notifications when laravel has pending updates or updates them.
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/cesargb/laravel-update.svg?style=flat-square)](https://packagist.org/packages/cesargb/laravel-update)
+[![Build Status](https://img.shields.io/travis/cesargb/laravel-update/master.svg?style=flat-square)](https://travis-ci.org/cesargb/laravel-update)
+[![StyleCI](https://styleci.io/repos/42480275/shield)](https://styleci.io/repos/99483997)
+[![Total Downloads](https://img.shields.io/packagist/dt/cesargb/laravel-update.svg?style=flat-square)](https://packagist.org/packages/cesargb/laravel-update)
+
 This package allows receive notifications when you have pending updates in Laravel.
 
 Optionally you can schedule the update of the packages.
